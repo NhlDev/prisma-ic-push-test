@@ -1,0 +1,7 @@
+{
+  "name": "infocorp-push",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
