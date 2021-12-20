@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "298211205629",
+    "project_id": "infocorp-test",
+    "storage_bucket": "infocorp-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298211205629:android:e222316857ad49ae5a3994",
+        "android_client_info": {
+          "package_name": "com.test.prisma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298211205629-7nt48u0q0tr6h9d183mr8b13olorrr2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDClgNVKXJnuASVCWl16OOOzdo1m4lLZbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298211205629-7nt48u0q0tr6h9d183mr8b13olorrr2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
