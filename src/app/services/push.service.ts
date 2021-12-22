@@ -6,6 +6,7 @@ import {
   PushNotifications,
   Token,
 } from '@capacitor/push-notifications';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -13,50 +14,57 @@ import {
 })
 export class PushService {
 
+  private _pushEventsSubject: BehaviorSubject<NotificationEvent> = new BehaviorSubject<NotificationEvent>(null);
+
+  public pushEventsObservable$: Observable<NotificationEvent> = this._pushEventsSubject.asObservable();
+
   constructor() { }
 
   public initNotifications() {
-    console.log('Initializing HomePage');
+    console.log('Initializing Push');
 
-    // Request permission to use push notifications
-    // iOS will prompt user and return if they granted permission or not
-    // Android will just grant without prompting
     PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
-        // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
       } else {
         console.log("forbbiden");
       }
     });
 
-    // On success, we should be able to receive notifications
-    PushNotifications.addListener('registration',
-      (token: Token) => {
-        alert('Push registration success, token: ' + token.value);
-      }
-    );
-
     // Some issue with our setup and push will not work
     PushNotifications.addListener('registrationError',
       (error: any) => {
-        alert('Error on registration: ' + JSON.stringify(error));
+        this._pushEventsSubject.next({ eventName: 'registrationError', error: error });
       }
     );
 
     // Show us the notification payload if the app is open on our device
     PushNotifications.addListener('pushNotificationReceived',
       (notification: PushNotificationSchema) => {
-        alert('Push received: ' + JSON.stringify(notification));
+        this._pushEventsSubject.next({ eventName: 'pushNotificationReceived', notification: notification });
       }
     );
 
     // Method called when tapping on a notification
     PushNotifications.addListener('pushNotificationActionPerformed',
       (notification: ActionPerformed) => {
-        alert('Push action performed: ' + JSON.stringify(notification));
+        this._pushEventsSubject.next({ eventName: 'pushNotificationActionPerformed', notificationAction: notification });
+      }
+    );
+
+    // On success, we should be able to receive notifications
+    PushNotifications.addListener('registration',
+      (token: Token) => {
+        this._pushEventsSubject.next({ eventName: 'pushNotificationActionPerformed', token: token });
       }
     );
   }
+}
 
+export interface NotificationEvent {
+  eventName: "registrationError" | "pushNotificationReceived" | "pushNotificationActionPerformed" | "registration";
+  error?: any;
+  notification?: PushNotificationSchema;
+  notificationAction?: ActionPerformed;
+  token?: Token;
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PushService } from '../services/push.service'
 
 @Component({
   selector: 'app-home',
@@ -8,10 +7,8 @@ import { PushService } from '../services/push.service'
 })
 export class HomePage implements OnInit {
 
-  constructor(private pushSrv: PushService) { }
+  constructor() { }
 
-  public ngOnInit(): void {
-    this.pushSrv.initNotifications();
-  }
+  public ngOnInit(): void { }
 
 }
