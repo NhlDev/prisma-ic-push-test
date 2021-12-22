@@ -55,7 +55,8 @@ export class PushService {
     // On success, we should be able to receive notifications
     PushNotifications.addListener('registration',
       (token: Token) => {
-        this._pushEventsSubject.next({ eventName: 'pushNotificationActionPerformed', token: token });
+        console.log(token);
+        this._pushEventsSubject.next({ eventName: 'registration', token: token });
       }
     );
   }
