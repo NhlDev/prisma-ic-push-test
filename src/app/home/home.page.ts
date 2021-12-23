@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
   async startPrisma() {
 
     // Inicializacion plugin de prisma
-    Prisma.Load(this.prismaConfig);
+    Prisma.Load(this.prismaForm.value);
 
     // Inicializar las push y subcripcion a los eventos
     this.startPush();
