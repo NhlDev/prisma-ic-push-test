@@ -31,21 +31,13 @@ export class HomePage implements OnInit {
       protocol: ['', Validators.required],
     });
 
-    this.prismaForm.patchValue({
-      ...this.prismaConfig
-    });
+    this.prismaForm.patchValue(this.prismaConfig);
   }
 
   async startPrisma() {
 
     // Inicializacion plugin de prisma
-    Prisma.Load({
-      server: this.prismaConfig.server,
-      port: this.prismaConfig.port,
-      appToken: this.prismaConfig.appToken,
-      customerId: this.prismaConfig.customerId,
-      protocol: this.prismaConfig.protocol
-    });
+    Prisma.Load(this.prismaConfig);
 
     // Inicializar las push y subcripcion a los eventos
     this.startPush();
