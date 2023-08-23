@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "298211205629",
-    "project_id": "infocorp-test",
-    "storage_bucket": "infocorp-test.appspot.com"
+    "project_number": "461405854936",
+    "project_id": "icbanking-98b8d",
+    "storage_bucket": "icbanking-98b8d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:298211205629:android:a6ea5d05e95073165a3994",
+        "mobilesdk_app_id": "1:461405854936:android:e50ae7debb2a12893ecbad",
         "android_client_info": {
-          "package_name": "com.test.prisma"
+          "package_name": "uy.com.Santander"
         }
       },
       "oauth_client": [
         {
-          "client_id": "298211205629-7nt48u0q0tr6h9d183mr8b13olorrr2j.apps.googleusercontent.com",
+          "client_id": "461405854936-7phl64h23okmi0ab43uardc208rm6sq4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDClgNVKXJnuASVCWl16OOOzdo1m4lLZbA"
+          "current_key": "AIzaSyDGk1YosnuTBX-2voNxZXwSxKqfMZu7W3g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "298211205629-7nt48u0q0tr6h9d183mr8b13olorrr2j.apps.googleusercontent.com",
+              "client_id": "461405854936-7phl64h23okmi0ab43uardc208rm6sq4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "461405854936-b2ldc5guo91a8i9e9db4pcghin5eirj0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uy.com.Santander"
+              }
             }
           ]
         }
